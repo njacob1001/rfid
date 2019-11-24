@@ -114,6 +114,7 @@ func (d *US020) Distance() (distance float64, err error) {
 
 	// Wait until ECHO goes high
 	for d.echoPin.Read() == rpio.Low {
+		log.Print("for loop")
 	}
 
 	startTime := time.Now() // Record time when ECHO goes high
@@ -124,6 +125,7 @@ func (d *US020) Distance() (distance float64, err error) {
 
 	// Wait until ECHO goes low
 	for d.echoPin.Read() == rpio.High {
+		log.Print("second for loop")
 	}
 
 	duration := time.Since(startTime) // Calculate time lapsed for ECHO to transition from high to low
