@@ -33,20 +33,42 @@ func main() {
 	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
-	var startTime int64
-	var endTime int64
+	var startTime := time.Now()
+	var endTime := time.Now()
 
-	for echo.Read() == 0 {
-		startTime = time.Now().UnixNano()
-	}
-	for echo.Read() == 1 {
-		endTime = time.Now().UnixNano()
-	}
-	pulseDuration := endTime - startTime
+	for {
+		val := echo.Read()
+		startTime = time.Now()
 
-	distance := pulseDuration * 17150
+		if val == rpio.Low { 
+			continue 
+		}
+
+		break
+		
+	}
+
+	for {
+		val := echo.Read()
+		endTime = time.Now()
+
+		if val == rpio.High {
+			continue
+		}
+
+		break
+		
+	}
+
+
+
+
+	duration := end.Sub(start)
+	durationAsInt64 := int64(duration)
+	distance := duration.Seconds() * 34300
+	distance = distance / 2 //one way travel time
 	fmt.Println("distancia======")
-	fmt.Println(distance)
+	fmt.Printf("Distance : %v | duration: %v | raw: %v \n", distance, duration.Seconds(), durationAsInt64)
 	fmt.Println("===========")
 
 	defer rpio.Close()
