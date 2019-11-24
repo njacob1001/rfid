@@ -36,11 +36,14 @@ func main() {
 	var startTime = time.Now()
 	var endTime = time.Now()
 
+	fmt.Println(rpio.Low)
+	fmt.Println(rpio.High)
+
 	for {
 		val := echo.Read()
 		startTime = time.Now()
 
-		if val == rpio.Low() {
+		if val == rpio.Low {
 			continue
 		}
 
@@ -52,7 +55,7 @@ func main() {
 		val := echo.Read()
 		endTime = time.Now()
 
-		if val == rpio.High() {
+		if val == rpio.High {
 			continue
 		}
 
