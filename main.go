@@ -34,14 +34,14 @@ func main() {
 	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
-	var startTime Time
-	var endTime Time
+	var startTime int64
+	var endTime int64
 
 	for echo.Read() == 0 {
-		startTime = time.Now()
+		startTime = time.Now().UnixNano
 	}
 	for echo.Read() == 1 {
-		endTime = time.Now()
+		endTime = time.Now().UnixNano()
 	}
 	pulseDuration := endTime - startTime
 
