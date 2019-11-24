@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"time"
 
 	rfid "github.com/firmom/go-rfid-rc522/rfid"
@@ -45,7 +44,7 @@ func main() {
 	}
 	pulseDuration := endTime - startTime
 
-	distance := math.Round(pulseDuration * 17150)
+	distance := pulseDuration * 17150
 	fmt.Println("distancia======")
 	fmt.Println(distance)
 	fmt.Println("===========")
