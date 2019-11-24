@@ -41,6 +41,7 @@ func main() {
 
 	for {
 		val := echo.Read()
+		fmt.Printf("value: %v \n", val)
 		startTime = time.Now()
 
 		if val == rpio.Low {
