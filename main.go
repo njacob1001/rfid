@@ -37,10 +37,10 @@ func main() {
 	var pulse_end_time time
 
 	for echo.Read() == 0 {
-		pulse_start_time = time.time()
+		pulse_start_time = time.Now()
 	}
 	for echo.Read() == 1 {
-		pulse_end_time time = time.time()
+		pulse_end_time time = time.Now()
 	}
 	pulse_duration := pulse_end_time - pulse_start_time
 
