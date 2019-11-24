@@ -33,19 +33,19 @@ func main() {
 	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
-	var startTime := time.Now()
-	var endTime := time.Now()
+	var startTime = time.Now()
+	var endTime = time.Now()
 
 	for {
 		val := echo.Read()
 		startTime = time.Now()
 
-		if val == rpio.Low { 
-			continue 
+		if val == rpio.Low {
+			continue
 		}
 
 		break
-		
+
 	}
 
 	for {
@@ -57,11 +57,8 @@ func main() {
 		}
 
 		break
-		
+
 	}
-
-
-
 
 	duration := end.Sub(start)
 	durationAsInt64 := int64(duration)
