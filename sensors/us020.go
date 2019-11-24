@@ -104,9 +104,9 @@ func (d *US020) Distance() (distance float64, err error) {
 	}
 
 	// Generate a TRIGGER pulse
-	// d.triggerPin.High()
+	d.triggerPin.High()
 	time.Sleep(pulseDelay)
-	// d.triggerPin.Low()
+	d.triggerPin.Low()
 
 	if d.Debug {
 		log.Print("us020: waiting for echo to go high")
