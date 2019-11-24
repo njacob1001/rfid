@@ -34,8 +34,8 @@ func main() {
 	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
-	var startTime time
-	var endTime time
+	var startTime Time
+	var endTime Time
 
 	for echo.Read() == 0 {
 		startTime = time.Now()
