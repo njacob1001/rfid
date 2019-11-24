@@ -30,7 +30,7 @@ func main() {
 	time.Sleep(2 * time.Second)
 	fmt.Println("Calculando distancia...")
 	trigger.High()
-	time.Sleep(1 * time.Second)
+	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
 	var startTime = time.Now()
