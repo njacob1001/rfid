@@ -53,11 +53,11 @@ func main() {
 	}
 
 	for {
-		val := echo.Read()
+		val2 := echo.Read()
 		endTime = time.Now()
 
-		if val == rpio.High {
-			fmt.Printf("second value: %v \n", val)
+		if val2 == rpio.High {
+			fmt.Printf("second value: %v \n", val2)
 			continue
 		}
 
