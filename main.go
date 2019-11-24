@@ -19,10 +19,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	trigger := rpio.Pin(triggerPin)
+	trigger := rpio.Pin(7)
 	trigger.Output()
 
-	echo := rpio.Pin(echoPin)
+	echo := rpio.Pin(11)
 	echo.Input()
 
 	trigger.Low()
@@ -30,7 +30,7 @@ func main() {
 	time.Sleep(2 * time.Second)
 	fmt.Println("Calculando distancia...")
 	trigger.High()
-	time.Sleep(1 * time.Microsecond)
+	time.Sleep(1 * time.Nanosecond)
 	trigger.Low()
 
 	var startTime = time.Now()
