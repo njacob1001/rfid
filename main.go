@@ -38,7 +38,7 @@ func main() {
 	var endTime int64
 
 	for echo.Read() == 0 {
-		startTime = time.Now().UnixNano
+		startTime = time.Now().UnixNano()
 	}
 	for echo.Read() == 1 {
 		endTime = time.Now().UnixNano()
