@@ -33,8 +33,20 @@ func main() {
 	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
-	fmt.Println("frecuencia======")
-	fmt.Println(echo.Freq())
+	var pulse_start_time time
+	var pulse_end_time time
+
+	for echo.Read() == 0 {
+		pulse_start_time = time.time()
+	}
+	for echo.Read() == 1 {
+		pulse_end_time time = time.time()
+	}
+	pulse_duration := pulse_end_time - pulse_start_time
+
+	distance := math.Round(pulse_duration * 17150, 2)
+	fmt.Println("distancia======")
+	fmt.Println(distance)
 	fmt.Println("===========")
 
 	defer rpio.Close()
