@@ -41,10 +41,10 @@ func main() {
 
 	for {
 		val := echo.Read()
-		fmt.Printf("value: %v \n", val)
 		startTime = time.Now()
 
 		if val == rpio.Low {
+			fmt.Printf("value: %v \n", val)
 			continue
 		}
 
@@ -57,13 +57,14 @@ func main() {
 		endTime = time.Now()
 
 		if val == rpio.High {
+			fmt.Printf("second value: %v \n", val)
 			continue
 		}
 
 		break
 
 	}
-
+	fmt.Println("bueno jeje")
 	duration := endTime.Sub(startTime)
 	durationAsInt64 := int64(duration)
 	distance := duration.Seconds() * 34300
