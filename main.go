@@ -34,18 +34,18 @@ func main() {
 	time.Sleep(1 * time.Microsecond)
 	trigger.Low()
 
-	var pulse_start_time time
-	var pulse_end_time time
+	var startTime time
+	var endTime time
 
 	for echo.Read() == 0 {
-		pulse_start_time = time.Now()
+		startTime = time.Now()
 	}
 	for echo.Read() == 1 {
-		pulse_end_time = time.Now()
+		endTime = time.Now()
 	}
-	pulse_duration := pulse_end_time - pulse_start_time
+	pulseDuration := endTime - startTime
 
-	distance := math.Round(pulse_duration*17150, 2)
+	distance := math.Round(pulseDuration * 17150)
 	fmt.Println("distancia======")
 	fmt.Println(distance)
 	fmt.Println("===========")
