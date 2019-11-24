@@ -27,7 +27,7 @@ func main() {
 
 	trigger.Low()
 	fmt.Println("Esperando para medir la distancia")
-	time.Sleep(2 * time.Millisecond)
+	time.Sleep(2 * time.Second)
 	fmt.Println("Calculando distancia...")
 	trigger.High()
 	time.Sleep(1 * time.Microsecond)
