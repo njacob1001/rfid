@@ -60,7 +60,7 @@ func main() {
 
 	}
 
-	duration := end.Sub(start)
+	duration := endTime.Sub(startTime)
 	durationAsInt64 := int64(duration)
 	distance := duration.Seconds() * 34300
 	distance = distance / 2 //one way travel time
