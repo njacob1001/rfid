@@ -58,7 +58,7 @@ func main() {
 				continue
 			}
 			// Get domain information from SSLLabs API
-			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", js)
+			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", string(js))
 			if err != nil {
 				log.Fatalln(err)
 			}
