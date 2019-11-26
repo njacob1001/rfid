@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -58,7 +59,7 @@ func main() {
 				continue
 			}
 			// Get domain information from SSLLabs API
-			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", string(js))
+			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", "application/json", bytes.NewBuffer(string(js)))
 			if err != nil {
 				log.Fatalln(err)
 			}
