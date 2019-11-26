@@ -58,6 +58,9 @@ func main() {
 				continue
 			}
 			// Get domain information from SSLLabs API
+
+			fmt.Println("Creando petición")
+			fmt.Print("Total articulos: " + string(len(products)) + "\n")
 			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", "application/json", bytes.NewBuffer(js))
 			if err != nil {
 				fmt.Println(err)
@@ -86,6 +89,8 @@ func main() {
 			case id := <-rfidChan:
 				// product = id
 				products = append(products, id)
+				fmt.Println("Articulo con dódigo:")
+				fmt.Println(id)
 			default:
 				contador++
 			}
