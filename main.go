@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"time"
 
@@ -52,7 +51,7 @@ func main() {
 			}
 			js, err := json.Marshal(resp)
 			if err != nil {
-				println(err)
+				fmt.println(err)
 				allowNew = true
 				products = []string{"test"}
 				contador = 0
@@ -61,13 +60,17 @@ func main() {
 			// Get domain information from SSLLabs API
 			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", "application/json", bytes.NewBuffer(js))
 			if err != nil {
-				log.Fatalln(err)
+				fmt.println(err)
+				allowNew = true
+				products = []string{"test"}
+				contador = 0
+				continue
 			}
 			defer hostInfo.Body.Close()
 
 			var hostResponse ResponseAPI
 			if err := json.NewDecoder(hostInfo.Body).Decode(&hostResponse); err != nil {
-				log.Println(err)
+				fmt.Println(err)
 			}
 			if hostResponse.Ok {
 				println("Compra exitosa!")
@@ -81,7 +84,7 @@ func main() {
 		if allowNew {
 			select {
 			case id := <-rfidChan:
-				product = id
+				// product = id
 				append(products, id)
 				print
 			default:
