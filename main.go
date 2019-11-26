@@ -85,8 +85,7 @@ func main() {
 			select {
 			case id := <-rfidChan:
 				// product = id
-				append(products, id)
-				print
+				products = append(products, id)
 			default:
 				contador++
 			}
