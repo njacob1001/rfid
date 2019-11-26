@@ -51,7 +51,7 @@ func main() {
 			}
 			js, err := json.Marshal(resp)
 			if err != nil {
-				fmt.println(err)
+				fmt.Println(err)
 				allowNew = true
 				products = []string{"test"}
 				contador = 0
@@ -60,7 +60,7 @@ func main() {
 			// Get domain information from SSLLabs API
 			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", "application/json", bytes.NewBuffer(js))
 			if err != nil {
-				fmt.println(err)
+				fmt.Println(err)
 				allowNew = true
 				products = []string{"test"}
 				contador = 0
@@ -73,9 +73,9 @@ func main() {
 				fmt.Println(err)
 			}
 			if hostResponse.Ok {
-				println("Compra exitosa!")
+				fmt.Println("Compra exitosa!")
 			} else {
-				println("Compra fracasada")
+				fmt.Println("Compra fracasada")
 			}
 			contador = 0
 			products = []string{"test"}
@@ -94,5 +94,5 @@ func main() {
 		}
 	}
 
-	println(product)
+	fmt.Println(product)
 }
