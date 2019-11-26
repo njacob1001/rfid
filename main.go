@@ -48,7 +48,7 @@ func main() {
 		if contador > 5 && len(products) > 1 {
 			allowNew = false
 			resp := PostBody{
-				articles: products,
+				Articles: products,
 			}
 			js, err := json.Marshal(resp)
 			if err != nil {
@@ -59,7 +59,7 @@ func main() {
 				continue
 			}
 			// Get domain information from SSLLabs API
-			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", "application/json", bytes.NewBuffer(string(js)))
+			hostInfo, err := http.Post("http://13.59.72.139:80/api/user/sale", "application/json", bytes.NewBuffer(js))
 			if err != nil {
 				log.Fatalln(err)
 			}
@@ -83,6 +83,7 @@ func main() {
 			case id := <-rfidChan:
 				product = id
 				append(products, id)
+				print
 			default:
 				contador++
 			}
